@@ -1,0 +1,24 @@
+#nav {
+  border-bottom: solid $grey 1px;
+  box-shadow: $drop-shadow;
+  background-color: $white;
+  height: 8vh;
+  width: 100vw;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+  #header {
+    font-size: 3em;
+    font-family: $header-font;
+    letter-spacing: 5px;
+    margin-top: 0px;
+    margin-bottom: 1px;
+    margin-left: 8px;
+  }
+  #links {
+    width: 45vw;
+    font-family: $body-font;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
