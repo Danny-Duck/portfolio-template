@@ -38,6 +38,7 @@ export default function NavBar() {
   const classes = useStyles();
   return (
     <>
+      <div style={{  }}></div>
       <AppBar>
         <Toolbar id="nav">
           <p id="header">{window.location.pathname.split("/")}</p>

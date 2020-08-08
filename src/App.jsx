@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-// import "bootstrap/dist/css/bootstrap.min.css";
 // Components
 import Nav from "./Components/Nav";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import NoMatch from "./Components/NoMatch";
+import Connect from "./Components/Connect";
+import Login from "./Components/Login";
 
 export default class App extends Component {
   nonNavRoutes = () => (
     <Switch>
-      <Route path="/login" render={() => <div>login</div>} />
+      <Route path="/login" component={Login} />
       <Route component={NoMatch} />
     </Switch>
   );
@@ -20,7 +21,7 @@ export default class App extends Component {
       <Nav name={"home"} />
       <Switch>
         <Route path="/home" component={Home} />
-        <Route path="/connect" render={() => <div>connect</div>} />
+        <Route path="/connect" component={Connect} />
       </Switch>
       <Footer />
     </>

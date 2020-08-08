@@ -10,7 +10,10 @@ $body-font: "Open Sans", sans-serif;
 @import "./Styles/Slideshow.scss";
 @import "./Styles/Home.scss";
 @import "./Styles/Post.scss";
+@import "./Styles/Form.scss";
 @import "./Styles/Footer.scss";
+@import "./Styles/Login.scss";
+
 @import "~bootstrap/scss/bootstrap";
 
 body {
