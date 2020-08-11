@@ -6,6 +6,11 @@ $inner-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 $header-font: "Quicksand", sans-serif;
 $body-font: "Open Sans", sans-serif;
 
+body {
+  font-family: $body-font;
+}
+
+// Component Styles
 @import "./Styles/Nav.scss";
 @import "./Styles/Slideshow.scss";
 @import "./Styles/Home.scss";
@@ -14,8 +19,6 @@ $body-font: "Open Sans", sans-serif;
 @import "./Styles/Footer.scss";
 @import "./Styles/Login.scss";
 
+// Dependencies
 @import "~bootstrap/scss/bootstrap";
 
-body {
-  font-family: $body-font;
-}
