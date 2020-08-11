@@ -6,10 +6,12 @@ export default class Slideshow extends Component {
     return (
       <div id={"slideshow"}>
         <Carousel>
-          {["#f8c291", "#fad390", "#6a89cc", "#82ccdd", "#b8e994", "#cf6a87", "#f8a5c2"].map((i) => {
+          {["#f8c291", "#fad390", "#6a89cc", "#82ccdd", "#b8e994", "#cf6a87", "#f8a5c2"].map((elem, ind) => {
             return (
-              <Carousel.Item>
-                <div style={{backgroundColor: i}}id={"slide"}>{i}</div>
+              <Carousel.Item key={ind}>
+                <div style={{ backgroundColor: elem }} id={"slide"}>
+                  {elem}
+                </div>
               </Carousel.Item>
             );
           })}
