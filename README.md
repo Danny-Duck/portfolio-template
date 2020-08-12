@@ -1,6 +1,6 @@
 # A Sample Website Project 🌱
 
-[Wireframes](https://www.figma.com/file/TzQtq6HMhwOrGFj6YayWCz/Artist-Portfolio?node-id=0%3A1) [Design Mood Board](https://www.pinterest.com.au/dannyadesigner/interface-design-inspiration/) [Backend](https://github.com/dannyknows/portfolio-template-api)
+[Wireframes](https://www.figma.com/file/TzQtq6HMhwOrGFj6YayWCz/Artist-Portfolio?node-id=0%3A1)  |  [Design Mood Board](https://www.pinterest.com.au/dannyadesigner/interface-design-inspiration/)  |  [Backend](https://github.com/dannyknows/portfolio-template-api)
 
 ## Stack
 
@@ -18,6 +18,11 @@
 - Unsplash images API
 
 ## Dev Log
+
+### day 6
+
+- decided to transition whole app to styled components using a theme context provider for globals
+- refactored app architecture to resemble usecase for each component Route -> Scene -> Styled Components <~ Context
 
 ### day 5
 
@@ -44,4 +49,4 @@
 
 - created basic wireframes, and established general vibe of site
 
-a tip of the metaphorical fedora to you for getting this far 😉
+a tip of the metaphorical fedora to you for getting this far 🕵️‍♂️
