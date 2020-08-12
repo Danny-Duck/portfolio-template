@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { LoremIpsum } from "react-lorem-ipsum";
 
-const DataContext = React.createContext({});
+const PostContext = React.createContext({});
 
-const ContextProvider = ({ children }) => {
+const PostProvider = ({ children }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -20,8 +20,8 @@ const ContextProvider = ({ children }) => {
     fetchData();
   }, []);
 
-  const { Provider } = DataContext;
+  const { Provider } = PostContext;
   return <Provider value={data}>{children}</Provider>;
 };
 
-export { ContextProvider, DataContext };
+export { PostProvider, PostContext };

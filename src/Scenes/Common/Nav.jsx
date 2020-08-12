@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -7,7 +7,35 @@ import Menu from "@material-ui/core/Menu";
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
+import { ThemeContext } from "../../ThemeContext";
 
+// styled components
+const Nav = styled(Toolbar)`
+  box-shadow: ${(props) => props.dropshadow};
+  background-color: pink;
+  justify-content: space-between;
+  height: 10vh;
+`;
+
+const Header = styled.p`
+  font-size: 3em;
+  font-family: ${(props) => props.headerFont};
+  letter-spacing: 5px;
+  margin-top: 0px;
+  margin-bottom: 1px;
+  margin-left: 8px;
+`;
+
+const NavLink = styled(Link)`
+  margin: 8px;
+  font-family: ${(props) => props.bodyFont};
+  text-decoration: none;
+  color: ${(props) => props.theme.white};
+  outline: 0;
+`;
+
+// material ui
 const useStyles = makeStyles((theme) => ({
   desktopOnly: {
     display: "flex",
@@ -24,8 +52,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function NavBar() {
+  const { white, dropShadow, headerFont, bodyFont } = useContext(ThemeContext);
+
   const [anchorEl, setAnchorEl] = useState(null);
+
   const isMenuOpen = Boolean(anchorEl);
+  const currentLocation = window.location.pathname.split("/");
 
   const MenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -38,20 +70,20 @@ export default function NavBar() {
   const classes = useStyles();
   return (
     <>
-      <div style={{  }}></div>
+      <div style={{ height: "10vh" }}></div>
       <AppBar>
-        <Toolbar id="nav">
-          <p id="header">{window.location.pathname.split("/")}</p>
+        <Nav dropshadow={dropShadow}>
+          <Header headerFont={headerFont}>{currentLocation}</Header>
           <div className={classes.desktopOnly}>
-            <Link className={"link"} to="/home">
+            <NavLink theme={{ white, bodyFont }} to="/home">
               home
-            </Link>
-            <Link className={"link"} to="/connect">
+            </NavLink>
+            <NavLink theme={{ white, bodyFont }} to="/connect">
               connect
-            </Link>
-            <Link className={"link"} to="/login">
+            </NavLink>
+            <NavLink theme={{ white, bodyFont }} to="/login">
               login
-            </Link>
+            </NavLink>
           </div>
           <IconButton className={classes.mobileOnly} onClick={MenuOpen}>
             <MenuIcon />
@@ -76,7 +108,7 @@ export default function NavBar() {
               </Link>
             </MenuItem>
           </Menu>
-        </Toolbar>
+        </Nav>
       </AppBar>
     </>
   );

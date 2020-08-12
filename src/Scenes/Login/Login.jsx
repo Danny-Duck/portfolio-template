@@ -1,10 +1,25 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import { useHistory } from "react-router-dom";
 
+// styled components
+const LoginCont = styled.div`
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+// material ui
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -17,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function App() {
+
+export default function Login() {
   const history = useHistory();
   const classes = useStyles();
   // PRODUCTION
@@ -48,14 +64,14 @@ export default function App() {
     } else {
       const { jwt } = await response.json();
       localStorage.setItem("token", jwt);
-      console.log(localStorage.getItem("token"))
+      console.log(localStorage.getItem("token"));
       history.push("/home");
     }
   };
 
   return (
-    <div className={"login"}>
-      <form className={classes.root} onSubmit={handleSubmit}>
+    <LoginCont>
+      <Form className={classes.root} onSubmit={handleSubmit}>
         <TextField
           name="email"
           error={false}
@@ -78,7 +94,7 @@ export default function App() {
         <Button type="submit" variant="contained">
           Login
         </Button>
-      </form>
-    </div>
+      </Form>
+    </LoginCont>
   );
 }
